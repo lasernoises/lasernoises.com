@@ -21,8 +21,7 @@ jobs:
           mkdir --parents ~/.local/bin
           tar \
             --directory ~/.local/bin \
-            --strip-components 1 \
-            --wildcards --gzip --extract '*/zola' \
+            --gzip --extract zola \
             --file /tmp/zola.tar.gz
           echo ~/.local/bin >> $GITHUB_PATH
           ls ~/.local/bin
