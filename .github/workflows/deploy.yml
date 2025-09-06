@@ -15,7 +15,7 @@ jobs:
       - name: Install zola
         run: |
           gh \
-            --repo nushell/nushell release download \
+            --repo getzola/zola release download \
             --pattern 'zola-*-x86_64-unknown-linux-gnu.tar.gz' \
             --output /tmp/zola.tar.gz
           mkdir --parents ~/.local/bin
