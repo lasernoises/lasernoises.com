@@ -13,7 +13,10 @@ taxonomies = [{ name = "tags" }]
 
 [extra]
 theme = "auto"
-socials = []
+socials = [
+  { name = "GitHub", icon = "github", url = "https://github.com/lasernoises" },
+  # { name = "LinkedIn", icon = "linkedin", url = "https://www.linkedin.com/in/florian-plattner-ba40bb175/" },
+]
 menu = []
 
 [markdown]
