@@ -42,8 +42,6 @@ I was worried that the overhead of the context switching was gonna be a problem 
 
 So I decided to get rid of the sys task and do it all in my task.
 
-I currently have no idea whether my suspicion is right here.
-
 # The Plan
 
 My first plan was to get the screen to just display a single color.
