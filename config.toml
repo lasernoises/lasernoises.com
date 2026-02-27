@@ -11,10 +11,13 @@ theme = "apollo"
 
 taxonomies = [{ name = "tags" }]
 
+generate_feeds = true
+
 [extra]
 theme = "auto"
 socials = [
   { name = "GitHub", icon = "github", url = "https://github.com/lasernoises" },
+  { name = "Atom", icon = "rss", url = "/atom.xml" },
   # { name = "LinkedIn", icon = "linkedin", url = "https://www.linkedin.com/in/florian-plattner-ba40bb175/" },
 ]
 menu = []
