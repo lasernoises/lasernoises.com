@@ -13,6 +13,11 @@ These all have readmes that go into a little bit of detail about how they work.
 This is a Ratatui wrapper where I implemented a bit of a weird widget API to work around limitations
 in the Rust type system.
 
+<https://github.com/lasernoises/spicetime>
+
+This is a small crate that implements owned and weak generational references. Weak references are
+`Copy`, but require a runtime generation check to read.
+
 <https://github.com/lasernoises/fluorine>
 
 This is a reactivity library with a design that is quite different from the ones I usually see.
