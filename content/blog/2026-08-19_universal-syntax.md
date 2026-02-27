@@ -1,6 +1,6 @@
 +++
 title = "A Shared Syntax for Custom Languages"
-date = "2026-08-19"
+date = "2026-08-25"
 +++
 
 ## Introduction
