@@ -115,7 +115,7 @@ The connection is a bit loose, but it makes contact.
 Before that I had tried soldering and that was a horrible idea because I don't have enough hands to hold the soldering iron, the solder and the jumper.
 
 Then there's this site which has timing information for all the different resolutions:
-http://www.tinyvga.com/vga-timing
+<http://www.tinyvga.com/vga-timing>
 
 At first I chose 640×480 because I wanted a minimal pixel count.
 I got that sort of working to the point where the monitor would recognize a signal, but it would need a bit of time to auto-adjust.
