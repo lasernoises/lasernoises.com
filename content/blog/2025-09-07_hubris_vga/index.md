@@ -98,7 +98,7 @@ So after a whole bunch of fiddling I got all the registers set up right to get t
 # Setting up the H-Sync and V-Sync Timers
 
 The first thing I sort of used for some guidance was this site where someone had done a similar project:
-https://www.programmerall.com/article/26476558/
+<https://www.programmerall.com/article/26476558/>
 That was pretty useful for the wiring itself and a basic understanding of how the signal works.
 
 The basic idea is that there's three pins for red, green and blue and two pins for horizontal and vertical sync.
@@ -121,7 +121,7 @@ At first I chose 640×480 because I wanted a minimal pixel count.
 I got that sort of working to the point where the monitor would recognize a signal, but it would need a bit of time to auto-adjust.
 
 I then decided I'd switch to 800×600 like they did in the link above, because those numbers add up much nicer:
-http://www.tinyvga.com/vga-timing/800x600@60Hz
+<http://www.tinyvga.com/vga-timing/800x600@60Hz>
 
 Each timer has a prescaler that can be used to divide the base clock, which is 200 Mhz in our case.
 The timer will then count up until it reaches the value in the auto-reload register (ARR).
