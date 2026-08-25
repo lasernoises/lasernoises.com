@@ -1,0 +1,58 @@
+{% component cards_posts(pages, section_path) %}
+    <div class="cards">
+        {%- for page in pages %}
+            <div class="card">
+                <div class="card-media"> {# New wrapper div for consistent media sizing #}
+                    {% if page.extra?.local_image %}
+                        {% set base = page.colocated_path or section_path | trim_start(pat="/") %}
+                        {% set path = page.extra.local_image if page.extra.local_image is starting_with(pat="/") else base ~ page.extra.local_image %}
+
+                        {% set image = resize_image(path=path, height=300, op="fit_height", format="webp") %}
+                        <img class="card-image"
+                             alt="{{ page.extra.local_image }}"
+                             src="{{ image.url }}" />
+                    {% elif page.extra?.remote_image %}
+                        <img class="card-image"
+                             alt="{{ page.extra.remote_image }}"
+                             src="{{ page.extra.remote_image }}" />
+                    {% elif page.extra?.local_video %}
+                        {% set video_path = page.extra.local_video if page.extra.local_video is starting_with(pat="/") else page.permalink ~ page.extra.local_video %}
+                        <video class="card-video" controls autoplay loop muted>
+                            <source src="{{ video_path | safe }}">
+                            Your browser does not support the video tag.
+                        </video>
+                    {% elif page.extra?.remote_video %}
+                        <video class="card-video" controls autoplay loop muted>
+                            <source src="{{ page.extra.remote_video | safe }}">
+                            Your browser does not support the video tag.
+                        </video>
+                    {% else %}
+                        <div class="card-image-placeholder"></div>
+                    {% endif %}
+                </div> {# End of card-media wrapper #}
+
+                <div class="card-info">
+                    <h1 class="card-title">
+                        {% if page.extra?.link_to %}
+                            <a href={{ page.extra.link_to }}>{{ page.title }}</a>
+                        {% else %}
+                            <a href={{ page.permalink | safe }}>{{ page.title }}</a>
+                        {% endif %}
+                    </h1>
+
+                    <div class="meta">
+                        {%- if page.date %}
+                            <time>{{ page.date | date(format="%Y-%m-%d") }}</time>
+                        {% endif -%}
+                        {% if page.draft %}<span class="draft-label">DRAFT</span>{% endif %}
+                    </div>
+
+                    <div class="card-description">
+                        {% if page.description %}{{ page.description }}{% endif %}
+                    </div>
+                </div>
+            </div>
+
+        {% endfor -%}
+    </div>
+{% endcomponent cards_posts %}

@@ -30,6 +30,7 @@ but I would suggest going a bit further.
 Firstly I'd prefer the templating to be structure aware and while we're at it we can ditch the ugly
 SGML syntax.
 
+{% raw %}
 ```
 div {
   "Some text"
@@ -40,6 +41,7 @@ div {
   }
 }
 ```
+{% endraw %}
 
 This has the property that we can statically prevent it from generating invalid html.
 

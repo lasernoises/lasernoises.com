@@ -1,0 +1,25 @@
+{% component note(header, clickable=false, center=false, hidden=false) %}
+{%- if clickable %}
+<div class="note-container">
+<button class="note-toggle">
+{%- if center %}
+<div class="note-center">{{ header | markdown | safe }}</div>
+{%- else %}
+<div class="note-icon">{{ header | markdown | safe }}</div>
+{%- endif %}
+</button>
+<div class="note-content" style="display: {{ "none" if hidden else "block" }};">{{ body | markdown | safe }}</div>
+</div>
+{%- else %}
+<div class="note-container">
+<div class="note-header">
+{%- if center %}
+<div class="note-center">{{ header | markdown | safe }}</div>
+{%- else %}
+<div class="note-icon">{{ header | markdown | safe }}</div>
+{%- endif %}
+</div>
+<div class="note-content">{{ body | markdown | safe }}</div>
+</div>
+{%- endif %}
+{% endcomponent note %}

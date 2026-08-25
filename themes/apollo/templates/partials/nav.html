@@ -1,6 +1,6 @@
 <nav>
     <div class="left-nav">
-        {% if config.extra.logo %}
+        {% if config.extra?.logo %}
             <a href={{ config.base_url }} class="logo">
                 <img alt="{{ config.title }}" src="{{ get_url(path=config.extra.logo) }}">
             </a>
@@ -10,7 +10,7 @@
 
 
         <div class="socials">
-            {% for social in config.extra.socials %}
+            {% for social in config.extra?.socials or [] %}
                 <a rel="me" href="{{ social.url }}" class="social">
                     <img alt="{{ social.name }}" src="{{ get_url(path="icons/social/" ~ social.icon ~ ".svg") }}">
                 </a>
@@ -19,7 +19,7 @@
     </div>
 
     <div class="right-nav">
-        {% for menu in config.extra.menu %}
+        {% for menu in config.extra?.menu or [] %}
             <a href={{ get_url(path=menu.url) }} style="margin-right: 0.5em">{{ menu.name }}</a>
         {% endfor %}
 
@@ -64,7 +64,7 @@
             </div>
         {% endif %}
 
-        {% if config.extra.theme == "toggle" %}
+        {% if (config.extra?.theme or "toggle") == "toggle" %}
             <a id="dark-mode-toggle"
             onclick="toggleTheme(); event.preventDefault();"
             href="#">

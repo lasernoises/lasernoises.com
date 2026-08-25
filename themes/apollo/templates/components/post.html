@@ -1,4 +1,14 @@
-{% macro list_post(page) %}
+{% component page_header(title) %}
+    {% if title %}
+    <div class="page-header">
+        {{ title }}
+    </div>
+    {% endif %}
+{% endcomponent page_header %}
+
+{% component site_title(config) %}{{ config.title or "Home" }}{% endcomponent site_title %}
+
+{% component list_post(page) %}
 <li class="list-item">
     <section>
         <div class="post-header">
@@ -17,33 +27,23 @@
                             {{ page.description }}
                         {% elif page.summary %}
                             {{ page.summary | safe }}&hellip;
-                        {% else %}
-                            {% set hide_read_more = true %}
                         {% endif %}
                     </div>
 
-                    {% if not hide_read_more %}<a class="readmore" href={{ page.permalink | safe }}>Read more ⟶</a>{% endif %}
+                    {% if page.description or page.summary %}
+                        <a class="readmore" href={{ page.permalink | safe }}>Read more ⟶</a>
+                    {% endif %}
                 </div>
             </div>
         </div>
     </section>
 </li>
-{% endmacro list_post %}
+{% endcomponent list_post %}
 
-{% macro list_posts(pages) %}
+{% component list_posts(pages) %}
     <ul>
         {%- for page in pages %}
-            {{ post_macros::list_post(page=page) }}
+            {{ <list_post page={page} /> }}
         {% endfor -%}
     </ul>
-{% endmacro list_posts %}
-
-{% macro page_header(title) %}
-    {% if title %}
-    <div class="page-header">
-        {{ title }}
-    </div>
-    {% endif %}
-{% endmacro content %}
-
-{% macro site_title() %}{{ config.title | default(value="Home") }}{% endmacro %}
+{% endcomponent list_posts %}
