@@ -229,7 +229,7 @@ println (drop_start (drop_end "Hello, Mike!" 1) 7)
 
 I don't want to do it in this way, however.
 The reason is that a lot of languages have their own way of handling pipelines or method calls, that
-isn't simply passing equivalent to passing a first parameter.
+isn't simply equivalent to passing a first parameter.
 
 For example in shells it means piping to `stdin`.
 Or in most object-oriented or adjacent languages method calls get resolved in the scope of the type
